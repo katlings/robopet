@@ -4,20 +4,28 @@ import time
 class Pet:
     def nap(self):
         print("napping")
-        pass
 
     def play(self):
         print("playing")
-        pass
+        # seek human, chase tail, rock back and forth
 
-    behaviors = (nap, play)
+    def eat(self):
+        print("asking for food")
+
+    # TODOS/ideas
+    # beg for food
+    # keep track of food/play ratio to determine whether pet gets round
+    # play with toy
+    # play a color matching game with color matchy thing YESSS I'M EXCITED
+    # cpe displays the color it wants, try to point the pet at it
+
+    behaviors = (nap, play, eat)
 
     def __init__(self):
         n = len(self.behaviors)
         random_weights = random.choices(range(100), k=n)
         total = sum(random_weights)
         self.personality = [weight/total for weight in random_weights]
-        print(list(self.personality))
 
     def behave(self):
         behavior = random.choices(population=self.behaviors, weights=self.personality)
